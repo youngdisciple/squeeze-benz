@@ -30,7 +30,7 @@ biscuit?
 
 - A high score yields higher monetary compensation after the game
 
-- If the player can escapes the police during a chase, they gain a bonus
+- If the player can escape the police during a chase, they gain a bonus
 
 - Cars are stat-based (speed, acceleration, traction, braking) which affects performance
 
