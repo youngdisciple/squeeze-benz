@@ -766,6 +766,7 @@ GameObject:
   - component: {fileID: 4892777098438442869}
   - component: {fileID: 5158885018229880968}
   - component: {fileID: 2498275883591435993}
+  - component: {fileID: 2589428779798988271}
   m_Layer: 0
   m_Name: PlayerCar 1
   m_TagString: Player
@@ -841,3 +842,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 84
   m_CollisionDetection: 2
+--- !u!114 &2589428779798988271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7874530186304523360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b22e886ed9d0e1dbdbc43386d6ed18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CarController
+  topSpeedKph: 180
+  acceleration: 8
+  brakeStrength: 10
+  lateralSpeed: 6
+  grip: 5
