@@ -23,8 +23,8 @@ public class CarController : MonoBehaviour
     void Update()
     {
         if (!GameManager.Instance.IsRunning) return;
-        Throttle = Input.GetKey(KeyCode.W) ? 1 : 0;
-        Braking = Input.GetKey(KeyCode.S);
+        Throttle = (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) ? 1 : 0;
+        Braking = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
         Steering = Mathf.MoveTowards(Steering, Input.GetAxisRaw("Horizontal"), 5 * Time.deltaTime);
     }
 
