@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &653119344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4892777098438442869, guid: f4175f5df0926c3648ab3e0fe8f29ad4, type: 3}
+  m_PrefabInstance: {fileID: 1057886484838710067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1208482913
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +307,7 @@ GameObject:
   - component: {fileID: 1641629128}
   - component: {fileID: 1641629127}
   - component: {fileID: 1641629130}
+  - component: {fileID: 1641629131}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -349,8 +355,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 280
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -376,13 +382,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641629126}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 120, z: 50}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 6.55, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1641629130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,6 +433,21 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1641629131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641629126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a021b5f099aedbd1bfa49a782c5965f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FollowCamera
+  target: {fileID: 653119344}
+  offset: {x: 0, y: 6, z: -11}
+  smoothTime: 0.12
 --- !u!1001 &1693375108
 PrefabInstance:
   m_ObjectHideFlags: 0
