@@ -56,13 +56,15 @@ public class PoliceController : MonoBehaviour
         {
             escapeTimer = gap > escapeGap ? escapeTimer + Time.fixedDeltaTime : 0f;
 
-            if (escapeTimer >= escapeSeconds)
-            {
-                State = PoliceState.Escaped;
-                resetTimer = 16f;
-                game.Notify("Police escaped");
-                onEscape.Invoke();
-            }
+            
+        if (escapeTimer >= escapeSeconds)
+    {
+        State = PoliceState.Escaped;
+        resetTimer = 16f;
+        game.RewardNotice("Police escaped");
+        onEscape.Invoke();
+    }
+
         }
         else
         {
