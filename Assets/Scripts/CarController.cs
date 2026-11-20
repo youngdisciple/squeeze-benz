@@ -15,6 +15,11 @@ public class CarController : MonoBehaviour
     public float Throttle { get; private set; }
     public bool Braking { get; private set; }
 
+    void Start()
+    {
+        GameManager.Instance.ApplySelectedCar(this);
+    }
+
     void Awake()
     {
         Body = GetComponent<Rigidbody>();
