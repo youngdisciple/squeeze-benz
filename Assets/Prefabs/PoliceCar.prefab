@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2413776733995903873}
   - component: {fileID: 8605105316823975617}
   m_Layer: 7
-  m_Name: RedLight (2)
+  m_Name: BlueLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7c9a4a784defdf91abe28da1110247c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -246,7 +246,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7c9a4a784defdf91abe28da1110247c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 2015277515259577341}
   - component: {fileID: 3843216436948772576}
   m_Layer: 7
-  m_Name: RedLight (1)
+  m_Name: WhiteLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -946,7 +946,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7c9a4a784defdf91abe28da1110247c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -982,6 +982,7 @@ GameObject:
   - component: {fileID: 8434668480451366192}
   - component: {fileID: 6898062954321968412}
   - component: {fileID: 288651683146053584}
+  - component: {fileID: 6986113133058383737}
   m_Layer: 7
   m_Name: PoliceCar
   m_TagString: Hazard
@@ -1082,6 +1083,20 @@ MonoBehaviour:
   catchUpBoost: 8
   acceleration: 15
   laneChangeSpeed: 6
+--- !u!114 &6986113133058383737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8688563416899411620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5736a10b5173a94f8849e5a16d41523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PoliceLights
+  redLight: {fileID: 4980776203157540922}
+  blueLight: {fileID: 1240207668048829821}
 --- !u!1 &8796305921779358913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1163,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7c9a4a784defdf91abe28da1110247c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
