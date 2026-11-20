@@ -766,6 +766,7 @@ GameObject:
   - component: {fileID: 3145232580741823854}
   - component: {fileID: 8540166333408283013}
   - component: {fileID: 5391559749174615487}
+  - component: {fileID: 7904678510527454142}
   m_Layer: 7
   m_Name: TrafficCar
   m_TagString: Hazard
@@ -841,3 +842,15 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 84
   m_CollisionDetection: 2
+--- !u!114 &7904678510527454142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171531602214481328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1b80cfcc091d901a6e6c87d8e0bb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrafficCar
