@@ -31,6 +31,20 @@ public class GameManager : MonoBehaviour
     public int Wallet { get; private set; }
     public int BestScore { get; private set; }
 
+
+    //garage - upgrades
+    
+    readonly bool[] owned = { true, false };
+    readonly bool[] upgraded = { false, false };
+    public int SelectedCar { get; private set; }
+    public int CarCount => cars.Length;
+    public CarProfile GetCar(int i) => cars[i];
+    public bool Owns(int i) => owned[i];
+    public bool HasUpgrade(int i) => upgraded[i];
+    public bool CanBuy(int i) => !owned[i] && Wallet >= cars[i].price;
+    public bool CanUpgrade(int i) => owned[i] && !upgraded[i] && Wallet >= 100;
+
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -128,5 +142,42 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
         Instance = null;
         Time.timeScale = 1;
+    }
+
+    [SerializeField] CarProfile[] cars =
+    {
+        new CarProfile { name = "Rustbucket", price = 0,
+        speed = 4, acceleration = 4, handling = 1, braking = 2, traction = 2 },
+        new CarProfile { name = "Bodega", price = 180,
+        speed = 2, acceleration = 2, handling = 5, braking = 2, traction = 2 }
+    };
+
+    public void BuyCar(int i)
+    {
+        if (!CanBuy(i)) { Notify("Already owned or insufficient funds."); return; }
+            Wallet -= cars[i].price;
+            owned[i] = true;
+            Notify("Purchased " + cars[i].name);
+    }
+    public void SelectCar(int i)
+    {
+        if (!owned[i]) { Notify("Buy the car first."); return; }
+            SelectedCar = i;
+            Notify("Selected " + cars[i].name);
+    }
+    public void UpgradeCar(int i)
+    {
+        if (!CanUpgrade(i)) { Notify("Upgrade unavailable or insufficient funds."); return; }
+            Wallet -= 100;
+            upgraded[i] = true;
+            Notify("Acceleration upgraded by 20%.");
+    }
+    public void ApplySelectedCar(CarController player)
+    {
+        CarProfile car = cars[SelectedCar];
+        float acceleration = (3 + car.acceleration * 1.5f) *
+        (upgraded[SelectedCar] ? 1.2f : 1);
+        player.Configure(110 + car.speed * 24, acceleration,
+        car.handling, 6 + car.braking * 2, 2 + car.traction * 1.1f);
     }
 }
