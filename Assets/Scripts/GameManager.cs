@@ -21,6 +21,16 @@ public class GameManager : MonoBehaviour
     string notice;
     float noticeUntil;
 
+    // Result - session properties
+    public int FinalScore { get; private set; }
+    public float FinalDistance { get; private set; }
+    public float FinalTopSpeed { get; private set; }
+    public int FinalNearMisses { get; private set; }
+    public int FinalEscapes { get; private set; }
+    public int MoneyEarned { get; private set; }
+    public int Wallet { get; private set; }
+    public int BestScore { get; private set; }
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -80,10 +90,29 @@ public class GameManager : MonoBehaviour
     public void Crash()
     {
         if (!IsRunning) return;
-        runActive = false; // Guard before any other callback.
+            ScoreManager score = ScoreManager.Instance;
+        if (score != null) score.SampleDistance();
+            runActive = false; // Prevent a second crash from paying again.
+        if (score != null)
+        {
+            FinalScore = score.Score;
+            FinalDistance = score.Distance;
+            FinalTopSpeed = score.TopSpeed;
+            FinalNearMisses = score.NearMisses;
+            FinalEscapes = score.Escapes;
+        }
+        else
+        {
+            FinalScore = FinalNearMisses = FinalEscapes = 0;
+            FinalDistance = FinalTopSpeed = 0;
+        }
+        
+        MoneyEarned = Mathf.FloorToInt(FinalScore / 20f);
+        Wallet += MoneyEarned;
+        BestScore = Mathf.Max(BestScore, FinalScore);
         Crashed?.Invoke();
-        Time.timeScale = 0;
-        Debug.Log("Crash. Use RestartRun from this component's menu.");
+        Time.timeScale = 1;
+        SceneManager.LoadScene("EndScene");
     }
 
     [ContextMenu("RestartRun")]
