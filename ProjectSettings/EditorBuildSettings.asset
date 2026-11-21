@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 8bf80a6505a54c94a8f656e3ab56732e
+  - enabled: 1
+    path: Assets/Scenes/GarageScene.unity
+    guid: 151f3349e7d30763e9b6ec82cb594195
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
